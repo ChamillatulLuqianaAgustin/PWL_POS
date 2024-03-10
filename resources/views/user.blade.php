@@ -12,6 +12,8 @@
                 <td>Username</td>
                 <td>Nama</td>
                 <td>ID Level Pengguna</td>
+                <td>Kode Level</td>
+                <td>Nama Level</td>
                 <td>Aksi</td>
             </tr>
             @foreach ($data as $d)
@@ -20,7 +22,10 @@
                 <td>{{ $d->username }}</td>
                 <td>{{ $d->nama }}</td>
                 <td>{{ $d->level_id }}</td>
-                <td><a href="{{ route('user.ubah', ['id' => $d->user_id]) }}">Ubah</a> | <a href="{{ route('user.hapus', ['id' => $d->user_id]) }}">Hapus</a></td>
+                <td>{{ $d->level->level_kode }}</td>
+                <td>{{ $d->level->level_nama }}</td>
+                <td><a href="{{ route('user.ubah', ['id' => $d->user_id]) }}">Ubah</a> | 
+                    <a href="{{ route('user.hapus', ['id' => $d->user_id]) }}">Hapus</a></td>
             </tr>  
             @endforeach
         </table>
