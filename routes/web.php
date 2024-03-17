@@ -36,3 +36,7 @@ Route::get('/user/ubah/{id}', [UserController::class, 'ubah'])->name('user.ubah'
 Route::get('/user', [UserController::class, 'index'])->name('user.index'); //Kembali
 Route::put('/user/ubah_simpan/{id}', [UserController::class, 'ubah_simpan'])->name('user.ubah_simpan');
 Route::get('/user/hapus/{id}', [UserController::class, 'hapus'])->name('user.hapus');
+
+//Praktikum 3 JS 5
+Route::get('/kategori/create', [KategoriController::class, 'create']);
+Route::post('/kategori', [KategoriController::class, 'store']);
