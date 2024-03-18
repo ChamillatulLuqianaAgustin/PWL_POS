@@ -24,7 +24,7 @@ Route::get('/', function () {
 Route::get('/level', [LevelController::class, 'index']);
 
 //Praktikum 5 JS 3
-Route::get('/kategori', [KategoriController::class, 'index']);
+// Route::get('/kategori', [KategoriController::class, 'index']);
 
 //Praktikum 6 JS 3
 Route::get('/user', [UserController::class, 'index']);
@@ -38,5 +38,9 @@ Route::put('/user/ubah_simpan/{id}', [UserController::class, 'ubah_simpan'])->na
 Route::get('/user/hapus/{id}', [UserController::class, 'hapus'])->name('user.hapus');
 
 //Praktikum 3 JS 5
-Route::get('/kategori/create', [KategoriController::class, 'create']);
+//Kategori
+Route::get('/kategori', [KategoriController::class, 'index']);
+
+//Create Kategori
+Route::get('/kategori/create', [KategoriController::class, 'create'])->name('/kategori/create');
 Route::post('/kategori', [KategoriController::class, 'store']);
