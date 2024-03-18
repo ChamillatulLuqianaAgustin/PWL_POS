@@ -39,8 +39,12 @@ Route::get('/user/hapus/{id}', [UserController::class, 'hapus'])->name('user.hap
 
 //Praktikum 3 JS 5
 //Kategori
-Route::get('/kategori', [KategoriController::class, 'index']);
+Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
 
 //Create Kategori
 Route::get('/kategori/create', [KategoriController::class, 'create'])->name('/kategori/create');
 Route::post('/kategori', [KategoriController::class, 'store']);
+
+//Edit Kategori
+Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('/kategori/edit');
+Route::put('/kategori/{id}', [KategoriController::class, 'edit_simpan'])->name('/kategori/edit_simpan');
