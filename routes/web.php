@@ -48,3 +48,6 @@ Route::post('/kategori', [KategoriController::class, 'store']);
 //Edit Kategori
 Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('/kategori/edit');
 Route::put('/kategori/{id}', [KategoriController::class, 'edit_simpan'])->name('/kategori/edit_simpan');
+
+//Delete Kategori
+Route::get('/kategori/delete/{id}', [KategoriController::class, 'delete'])->name('/kategori/delete');
