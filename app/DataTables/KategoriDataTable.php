@@ -93,6 +93,6 @@ class KategoriDataTable extends DataTable
     */
     protected function filename(): string
     {
-        return 'Kategori_' . date('YmdHis');
+        return 'User' . date('YmdHis');
     }
 }

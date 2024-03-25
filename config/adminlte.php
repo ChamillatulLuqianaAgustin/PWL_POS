@@ -327,6 +327,16 @@ return [
             'url' => 'kategori',
             'icon' => 'far fa-fw fa-list-alt',
         ],
+        [
+            'text' => 'User',
+            'url' => 'user',
+            'icon' => 'fas fa-user-plus',
+        ],
+        [
+            'text' => 'Level',
+            'url' => '/level',
+            'icon' => 'fas fa-users',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
