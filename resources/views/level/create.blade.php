@@ -15,11 +15,17 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="level_kode">Level Kode</label>
-                        <input type="text" class="form-control" id="level_kode" name="level_kode" placeholder="Level Kode">
+                        <input type="text" class="form-control @error('level_kode') is-invalid @enderror" id="level_kode" name="level_kode" placeholder="Level Kode">
+                        @error('level_kode')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="level_nama">Level Nama</label>
-                        <input type="text" class="form-control" id="level_nama" name="level_nama" placeholder="Level Nama">
+                        <input type="text" class="form-control @error('level_nama') is-invalid @enderror" id="level_nama" name="level_nama" placeholder="Level Nama">
+                        @error('level_nama')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
                 <div class="card-footer">
