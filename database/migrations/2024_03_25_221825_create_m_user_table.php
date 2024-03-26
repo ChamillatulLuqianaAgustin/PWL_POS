@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('level_id')->index;
             $table->string('username', 20)->unique();
             $table->string('nama', 100);
-            $table->string('password')->nullable();
+            $table->string('password');
             $table->timestamps();
 
             $table->foreign('level_id')->references('level_id')->on('m_level');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('useri');
+        Schema::dropIfExists('m_user');
     }
 };
