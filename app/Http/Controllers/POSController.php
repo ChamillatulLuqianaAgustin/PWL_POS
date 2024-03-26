@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\m_user;
+use Illuminate\Support\Facades\Hash;
 
 class POSController extends Controller
 {
@@ -32,11 +33,22 @@ class POSController extends Controller
     {
         //melakukan validasi data
         $request->validate([
-            'user_id' => 'max 20', 'username' => 'required', 'nama' => 'required', 'password' => 'required'
+            'user_id' => 'max 20', 
+            'username' => 'required', 
+            'nama' => 'required', 
+            'password' => 'required',
+            'level_id' => 'required',
         ]);
-        $request['password'] = $request['password'];
+
         //fungsi eloquent untuk menambah data
-        m_user::create($request->all());
+        // m_user::create($request->all());
+
+        m_user::create([
+            'username' => $request->username,
+            'nama' => $request->nama,
+            'password' => Hash::make($request->password),
+            'level_id' => $request->level_id,
+        ]);
 
         return redirect()->route('m_user.index')
             ->with('success', 'user Berhasil Ditambahkan');
