@@ -338,7 +338,7 @@ return [
             'icon' => 'fas fa-users',
         ],
         [
-            'text' => 'm_user',
+            'text' => 'M User',
             'url' => 'm_user',
             'icon' => 'fas fa-tasks',
         ],
