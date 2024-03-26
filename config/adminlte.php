@@ -337,6 +337,11 @@ return [
             'url' => '/level',
             'icon' => 'fas fa-users',
         ],
+        [
+            'text' => 'm_user',
+            'url' => 'm_user',
+            'icon' => 'fas fa-tasks',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
