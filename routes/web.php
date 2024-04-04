@@ -18,60 +18,71 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Jobsheet 7
+Route::get('/', [WelcomeController::class, 'index']);
+
+Route::group(['prefix' => 'user'], function () {
+    Route::get('/', [UserController::class, 'index']);          // Menampilkan halaman awal user
+    Route::post('/list', [UserController::class, 'list']);      // Menampilkan data user dalam bentuk json untuk datatables
+    Route::get('/create', [UserController::class, 'create']);   // Menampilkan halaman form tambah user
+    Route::post('/', [UserController::class, 'store']);         // Menyimpan data user baru
+    Route::get('/{id}', [UserController::class, 'show']);       // Menampilkan detail user
+    Route::get('/{id}/edit', [UserController::class, 'edit']);  // Menampilkan halaman form edit user
+    Route::put('/{id}', [UserController::class, 'update']);     // Menyimpan perubahan data user
+    Route::delete('/{id}', [UserController::class, 'destroy']); // Menghapus data user
 });
 
-//Praktikum 4 JS 3
-Route::get('/level', [LevelController::class, 'index']);
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-//Praktikum 5 JS 3
-// Route::get('/kategori', [KategoriController::class, 'index']);
+// //Praktikum 4 JS 3
+// Route::get('/level', [LevelController::class, 'index']);
 
-//Praktikum 6 JS 3
-Route::get('/user', [UserController::class, 'index']);
+// //Praktikum 5 JS 3
+// // Route::get('/kategori', [KategoriController::class, 'index']);
 
-//Praktikum 2.6 JS 4
-Route::get('/user/tambah', [UserController::class, 'tambah'])->name('user.tambah');
-Route::post('/user/tambah_simpan', [UserController::class, 'tambah_simpan'])->name('user.tambah_simpan');
-Route::get('/user/ubah/{id}', [UserController::class, 'ubah'])->name('user.ubah');
-Route::get('/user', [UserController::class, 'index'])->name('user.index'); //Kembali
-Route::put('/user/ubah_simpan/{id}', [UserController::class, 'ubah_simpan'])->name('user.ubah_simpan');
-Route::get('/user/hapus/{id}', [UserController::class, 'hapus'])->name('user.hapus');
+// //Praktikum 6 JS 3
+// Route::get('/user', [UserController::class, 'index']);
 
-//Praktikum 3 JS 5
-//Kategori
-Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
+// //Praktikum 2.6 JS 4
+// Route::get('/user/tambah', [UserController::class, 'tambah'])->name('user.tambah');
+// Route::post('/user/tambah_simpan', [UserController::class, 'tambah_simpan'])->name('user.tambah_simpan');
+// Route::get('/user/ubah/{id}', [UserController::class, 'ubah'])->name('user.ubah');
+// Route::get('/user', [UserController::class, 'index'])->name('user.index'); //Kembali
+// Route::put('/user/ubah_simpan/{id}', [UserController::class, 'ubah_simpan'])->name('user.ubah_simpan');
+// Route::get('/user/hapus/{id}', [UserController::class, 'hapus'])->name('user.hapus');
 
-//Create Kategori
-Route::get('/kategori/create', [KategoriController::class, 'create'])->name('/kategori/create');
-Route::post('/kategori', [KategoriController::class, 'store']);
+// //Praktikum 3 JS 5
+// //Kategori
+// Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
 
-//Edit Kategori
-Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('/kategori/edit');
-Route::put('/kategori/{id}', [KategoriController::class, 'edit_simpan'])->name('/kategori/edit_simpan');
+// //Create Kategori
+// Route::get('/kategori/create', [KategoriController::class, 'create'])->name('/kategori/create');
+// Route::post('/kategori', [KategoriController::class, 'store']);
 
-//Delete Kategori
-Route::get('/kategori/delete/{id}', [KategoriController::class, 'delete'])->name('/kategori/delete');
+// //Edit Kategori
+// Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('/kategori/edit');
+// Route::put('/kategori/{id}', [KategoriController::class, 'edit_simpan'])->name('/kategori/edit_simpan');
 
-//Manage User
-Route::get('/user', [UserController::class, 'index'])->name('user.index');
-Route::get('/user/create', [UserController::class, 'create'])->name('/user/create');
-Route::post('/user', [UserController::class, 'store']);
-Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('/user/edit');
-Route::put('/user/{id}', [UserController::class, 'edit_simpan'])->name('/user/edit_simpan');
-Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('/user/delete');
+// //Delete Kategori
+// Route::get('/kategori/delete/{id}', [KategoriController::class, 'delete'])->name('/kategori/delete');
 
-//Manage Level
-Route::get('/level', [LevelController::class, 'index'])->name('level.index');
-Route::get('/level/create', [LevelController::class, 'create'])->name('/level/create');
-Route::post('/level', [LevelController::class, 'store']);
-Route::get('/level/edit/{id}', [LevelController::class, 'edit'])->name('/level/edit');
-Route::put('/level/{id}', [LevelController::class, 'edit_simpan'])->name('/level/edit_simpan');
-Route::get('/level/delete/{id}', [LevelController::class, 'delete'])->name('/level/delete');
+// //Manage User
+// Route::get('/user', [UserController::class, 'index'])->name('user.index');
+// Route::get('/user/create', [UserController::class, 'create'])->name('/user/create');
+// Route::post('/user', [UserController::class, 'store']);
+// Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('/user/edit');
+// Route::put('/user/{id}', [UserController::class, 'edit_simpan'])->name('/user/edit_simpan');
+// Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('/user/delete');
 
-//POS
-Route::resource('m_user', POSController::class);
+// //Manage Level
+// Route::get('/level', [LevelController::class, 'index'])->name('level.index');
+// Route::get('/level/create', [LevelController::class, 'create'])->name('/level/create');
+// Route::post('/level', [LevelController::class, 'store']);
+// Route::get('/level/edit/{id}', [LevelController::class, 'edit'])->name('/level/edit');
+// Route::put('/level/{id}', [LevelController::class, 'edit_simpan'])->name('/level/edit_simpan');
+// Route::get('/level/delete/{id}', [LevelController::class, 'delete'])->name('/level/delete');
 
-//Jobsheet 7 - Prak 2
-Route::get('/', [WelcomeController::class, 'index']);
+// //POS
+// Route::resource('m_user', POSController::class);
