@@ -4,6 +4,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\POSController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BarangController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -52,6 +53,17 @@ Route::group(['prefix' => 'kategori'], function () {
     Route::get('/{id}/edit', [KategoriController::class, 'edit']);  // Menampilkan halaman form edit kategori
     Route::put('/{id}', [KategoriController::class, 'update']);     // Menyimpan perubahan data kategori
     Route::delete('/{id}', [KategoriController::class, 'destroy']); // Menghapus data kategori
+});
+
+Route::group(['prefix' => 'barang'], function () {
+    Route::get('/', [BarangController::class, 'index']);          // Menampilkan halaman awal kategori
+    Route::post('/list', [BarangController::class, 'list']);      // Menampilkan data kategori dalam bentuk json untuk datatables
+    Route::get('/create', [BarangController::class, 'create']);   // Menampilkan halaman form tambah kategori
+    Route::post('/', [BarangController::class, 'store']);         // Menyimpan data kategori baru
+    Route::get('/{id}', [BarangController::class, 'show']);       // Menampilkan detail kategori
+    Route::get('/{id}/edit', [BarangController::class, 'edit']);  // Menampilkan halaman form edit kategori
+    Route::put('/{id}', [BarangController::class, 'update']);     // Menyimpan perubahan data kategori
+    Route::delete('/{id}', [BarangController::class, 'destroy']); // Menghapus data kategori
 });
 
 // Route::get('/', function () {
