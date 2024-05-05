@@ -66,11 +66,11 @@ class TransaksiDataTable extends DataTable
     public function getColumns(): array
     {
         return [
+            Column::make('detail_id'),
             Column::make('penjualan_id'),
-            Column::make('user_id'),
-            Column::make('pembeli'),
-            Column::make('penjualan_kode'),
-            Column::make('penjualan_tanggal'),
+            Column::make('barang_id'),
+            Column::make('harga'),
+            Column::make('jumlah'),
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')
