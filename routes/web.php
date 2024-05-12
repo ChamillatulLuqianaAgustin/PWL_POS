@@ -11,6 +11,7 @@ use App\Http\Controllers\StokController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\FileUploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -113,9 +114,13 @@ Route::group(['middleware' => ['auth']], function () {
     });
 });
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+// Jobsheet 12
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/file-upload', [FileUploadController::class, 'fileUpload']);
+Route::post('/file-upload', [FileUploadController::class, 'prosesFileUpload']);
 
 // //Praktikum 4 JS 3
 // Route::get('/level', [LevelController::class, 'index']);
