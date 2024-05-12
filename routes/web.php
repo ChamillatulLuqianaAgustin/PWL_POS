@@ -122,6 +122,10 @@ Route::get('/', function () {
 Route::get('/file-upload', [FileUploadController::class, 'fileUpload']);
 Route::post('/file-upload', [FileUploadController::class, 'prosesFileUpload']);
 
+// Tugas JS 12
+Route::get('/file-upload-rename', [FileUploadController::class, 'fileUploadRename']);
+Route::post('/file-upload-rename', [FileUploadController::class, 'prosesFileUploadRename']);
+
 // //Praktikum 4 JS 3
 // Route::get('/level', [LevelController::class, 'index']);
 
